@@ -34,6 +34,6 @@ public class ClientService {
     }
     
     public ClientDto getClient(String dni) {
-        
+        ClientModel clientModel = clientRepository.findByDni(dni);
     }
 }
