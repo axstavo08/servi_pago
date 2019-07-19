@@ -5,6 +5,9 @@
  */
 package com.example.demo.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  *
  * @author Gustavo Ramos M.
@@ -12,6 +15,7 @@ package com.example.demo.dto;
 public class ResponseBody {
 
     private Integer codeError;
+    @JsonProperty("responseData")
     private ResponseData ResponseData;
 
     public ResponseBody(Integer codeError, ResponseData ResponseData) {

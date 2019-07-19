@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.ClienteDto;
 import com.example.demo.dto.ResponseBody;
 import com.example.demo.dto.ResponseData;
-import com.example.demo.model.Categoria;
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Pago;
 import com.example.demo.model.Suscripcion;
 import com.example.demo.model.Tarjeta;
 import com.example.demo.service.ClienteService;
-import com.example.demo.service.ConsultaService;
+import java.util.Map;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/cliente")
@@ -29,12 +29,12 @@ public class ClienteController {
     private ClienteService clienteservice;
 
     @PostMapping("login")
-    public Object obtenerCliente(String dni, String password) {
-        ClienteDto cliente = clienteservice.login(dni, password);
+    public Object obtenerCliente(@RequestBody Map<String, ?> params) {
+        ClienteDto cliente = clienteservice.login(String.valueOf(params.get("dni")), String.valueOf(params.get("password")));
         if (cliente == null) {
             return new ResponseBody(1, new ResponseData("Usuario incorrecto o invalido"));
         }
-        return new ResponseBody(1, new ResponseData(cliente));
+        return new ResponseBody(0, new ResponseData(cliente));
     }
 
     @GetMapping("/suscripciones")

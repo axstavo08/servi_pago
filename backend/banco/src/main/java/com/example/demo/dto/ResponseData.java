@@ -5,6 +5,10 @@
  */
 package com.example.demo.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 /**
  *
  * @author Gustavo Ramos M.
@@ -12,6 +16,7 @@ package com.example.demo.dto;
 public class ResponseData {
     
     String message;
+    @JsonProperty("_data")
     Object data;
 
     public ResponseData(String message, Object data) {

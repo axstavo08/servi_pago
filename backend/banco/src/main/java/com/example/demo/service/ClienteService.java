@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.ClienteDto;
+import com.example.demo.dto.SuscripcionDto;
+import com.example.demo.dto.TarjetaDto;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,15 +51,34 @@ public class ClienteService {
     }
 
     public ClienteDto login(String dni, String password) {
-        Cliente cliente = clienterepo.findByDni(dni);
+        //Cliente cliente = clienterepo.findByDni(dni);
+        Cliente cliente = clienterepo.getOne(dni);
         if (cliente == null) {
             return null;
         }
         if (!cliente.getPassword().equals(password)) {
             return null;
         }
+        List<SuscripcionDto> suscripcionDto = new ArrayList<>();
+        if (cliente.getSuscripciones() != null) {
+            for (Suscripcion suscripcion : cliente.getSuscripciones()) {
+                suscripcionDto.add(new SuscripcionDto(suscripcion.getId_suscripcion(),
+                        suscripcion.getDni(), suscripcion.getId_servicio(), suscripcion.getFecha(),
+                        suscripcion.getMonto()));
+            }
+        }
+        List<TarjetaDto> tarjetasDto = new ArrayList<>();
+        if (cliente.getTarjetas() != null) {
+            for (Tarjeta tarjeta : cliente.getTarjetas()) {
+                tarjetasDto.add(new TarjetaDto(tarjeta.getNumero_tarjeta(),
+                        tarjeta.getDni(), tarjeta.getTipo(), tarjeta.getFecha_vencimiento(),
+                        tarjeta.getCvv(), tarjeta.getFecha_registro(), tarjeta.getMarca(),
+                        tarjeta.getMonto(), tarjeta.getEstado(), null));
+            }
+        }
         return new ClienteDto(cliente.getDni(), cliente.getNombres(), cliente.getApellidos(),
-                cliente.getFecha_nacimiento(), cliente.getTelefono(), cliente.getCorreo());
+                cliente.getTelefono(), cliente.getUbigeo(), cliente.getCorreo(), tarjetasDto, suscripcionDto);
     }
+    
 
-}
+                                               }

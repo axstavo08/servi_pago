@@ -1,6 +1,6 @@
 package com.example.demo.dto;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +13,6 @@ public class ClienteDto {
     private String telefono;
     private String ubigeo;
     private String correo;
-    private String password;
     private List<TarjetaDto> tarjetas = new ArrayList<>();
     private List<SuscripcionDto> suscripciones = new ArrayList<>();
 
@@ -26,16 +25,16 @@ public class ClienteDto {
         this.correo = correo;
     }
     
-    public ClienteDto(String dni, String nombres, String apellidos, Date fecha_nacimiento, String telefono,
-            String ubigeo, String correo, String password) {
+    public ClienteDto(String dni, String nombres, String apellidos, String telefono,
+            String ubigeo, String correo, List<TarjetaDto> tarjetas, List<SuscripcionDto> suscripciones) {
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.fecha_nacimiento = fecha_nacimiento;
         this.telefono = telefono;
         this.ubigeo = ubigeo;
         this.correo = correo;
-        this.password = password;
+        this.tarjetas = tarjetas;
+        this.suscripciones = suscripciones;
     }
 
     public String getDni() {
@@ -92,14 +91,6 @@ public class ClienteDto {
 
     public void setCorreo(String correo) {
         this.correo = correo;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public List<TarjetaDto> getTarjetas() {

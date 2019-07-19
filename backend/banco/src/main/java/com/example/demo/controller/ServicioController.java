@@ -11,18 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Servicio;
-import com.example.demo.service.ConsultaService;
 
 @RestController
 @RequestMapping("/servicio")
 public class ServicioController {
-	@Autowired
-	private ConsultaService consulta;
-	
-	@GetMapping()
-	public String Listar(Model model) {
-		List<Servicio> servicios = consulta.getServicios();
-		model.addAttribute("servicios",servicios);
-		return "servicio/index";
-	}
+
 }

@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -26,10 +28,6 @@ public class Cliente {
     @NotNull
     @Column(name = "apellidos", length = 50)
     private String apellidos;
-
-    @NotNull
-    @Column(name = "fecha_nacimiento")
-    private Date fecha_nacimiento;
 
     @NotNull
     @Column(name = "ubigeo")
@@ -93,14 +91,6 @@ public class Cliente {
 
     public List<Suscripcion> getSuscripciones() {
         return suscripciones;
-    }
-
-    public Date getFecha_nacimiento() {
-        return fecha_nacimiento;
-    }
-
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
     }
 
     public String getUbigeo() {

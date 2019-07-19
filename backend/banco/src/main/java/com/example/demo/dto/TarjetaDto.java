@@ -1,6 +1,6 @@
 package com.example.demo.dto;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,107 +15,120 @@ import javax.validation.constraints.NotNull;
 
 public class TarjetaDto {
 
-	private String numero_tarjeta;
-	
-	private String dni;
-	
-	private String tipo;
-	
-	private Date fecha_vencimiento;
-	
-	private String cvv;
-	
-	private Date fecha_registro;
-	
-	private String marca;
-	
-	private float monto;
-	
-	private String estado;
-	
-	private ClienteDto cliente;
-	
-	private List<PagoDto> pagos = new ArrayList<PagoDto>();	
-	
-	
-	public String getNumero_tarjeta() {
-		return numero_tarjeta;
-	}
+    private String numero_tarjeta;
 
-	public void setNumero_tarjeta(String numero_tarjeta) {
-		this.numero_tarjeta = numero_tarjeta;
-	}
+    private String dni;
 
-	public String getDni() {
-		return dni;
-	}
+    private String tipo;
 
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
+    private Date fecha_vencimiento;
 
-	public String getTipo() {
-		return tipo;
-	}
+    private String cvv;
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+    private Date fecha_registro;
 
-	public Date getFecha_vencimiento() {
-		return fecha_vencimiento;
-	}
+    private String marca;
 
-	public void setFecha_vencimiento(Date fecha_vencimiento) {
-		this.fecha_vencimiento = fecha_vencimiento;
-	}
+    private float monto;
 
-	public String getCvv() {
-		return cvv;
-	}
+    private String estado;
 
-	public void setCvv(String cvv) {
-		this.cvv = cvv;
-	}
+    private ClienteDto cliente;
 
-	public Date getFecha_registro() {
-		return fecha_registro;
-	}
+    private List<PagoDto> pagos = new ArrayList<PagoDto>();
 
-	public void setFecha_registro(Date fecha_registro) {
-		this.fecha_registro = fecha_registro;
-	}
+    public TarjetaDto(String numero_tarjeta, String dni, String tipo, Date fecha_vencimiento, String cvv,
+            Date fecha_registro, String marca, float monto, String estado, ClienteDto cliente) {
+        this.numero_tarjeta = numero_tarjeta;
+        this.dni = dni;
+        this.tipo = tipo;
+        this.fecha_vencimiento = fecha_vencimiento;
+        this.cvv = cvv;
+        this.fecha_registro = fecha_registro;
+        this.marca = marca;
+        this.monto = monto;
+        this.estado = estado;
+        this.cliente = cliente;
+    }
 
-	public String getMarca() {
-		return marca;
-	}
+    public String getNumero_tarjeta() {
+        return numero_tarjeta;
+    }
 
-	public void setMarca(String marca) {
-		this.marca = marca;
-	}
+    public void setNumero_tarjeta(String numero_tarjeta) {
+        this.numero_tarjeta = numero_tarjeta;
+    }
 
-	public String getEstado() {
-		return estado;
-	}
+    public String getDni() {
+        return dni;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 
-	public float getMonto() {
-		return monto;
-	}
-	
-	public void setMonto(float monto) {
-		this.monto = monto;
-	}
+    public String getTipo() {
+        return tipo;
+    }
 
-	public ClienteDto getCliente() {
-		return cliente;
-	}
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
-	public List<PagoDto> getPagos() {
-		return pagos;
-	}	
-	
+    public Date getFecha_vencimiento() {
+        return fecha_vencimiento;
+    }
+
+    public void setFecha_vencimiento(Date fecha_vencimiento) {
+        this.fecha_vencimiento = fecha_vencimiento;
+    }
+
+    public String getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
+    }
+
+    public Date getFecha_registro() {
+        return fecha_registro;
+    }
+
+    public void setFecha_registro(Date fecha_registro) {
+        this.fecha_registro = fecha_registro;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public float getMonto() {
+        return monto;
+    }
+
+    public void setMonto(float monto) {
+        this.monto = monto;
+    }
+
+    public ClienteDto getCliente() {
+        return cliente;
+    }
+
+    public List<PagoDto> getPagos() {
+        return pagos;
+    }
+
 }

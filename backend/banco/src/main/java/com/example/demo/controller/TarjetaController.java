@@ -11,18 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Tarjeta;
-import com.example.demo.service.ConsultaService;
 
 @RestController
 @RequestMapping("/cuenta")
 public class TarjetaController {
 	
-	@Autowired
-	private ConsultaService consulta;
-	
-	@GetMapping
-	public List<Tarjeta> Listar(Model model) {
-		List<Tarjeta> cuentas = consulta.getCuentas();
-		return cuentas;
-	}
+
 }
