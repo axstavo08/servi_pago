@@ -24,7 +24,11 @@ public class EntidadDto {
 	
 	public EntidadDto() {}
 	
-	//public EntidadDto() {}
+	public EntidadDto(String ruc,String nombre,String telefono) {
+		this.ruc = ruc;
+		this.nombre_entidad = nombre;
+		this.telefono = telefono;
+	}
 	
 	public String getRuc() {
 		return ruc;
