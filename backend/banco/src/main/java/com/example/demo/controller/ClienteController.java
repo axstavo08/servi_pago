@@ -32,7 +32,7 @@ public class ClienteController {
         if (cliente == null) {
             return new ResponseBody(1, new ResponseData("Usuario incorrecto o invalido"));
         }
-        return new ResponseBody(1, new ResponseData("Usuario incorrecto o invalido"));
+        return new ResponseBody(1, new ResponseData(cliente));
     }
 
     @GetMapping("/suscripciones")
