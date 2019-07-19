@@ -1,0 +1,41 @@
+<div class="text-center m-5 animated fadeIn" style="background-color:#D1ECF1">
+    <h1><i class="fa fa-exclamation fa-rotate-180"></i> Bienvenido: {{cliente}}<i class="fa fa-exclamation"></i></h1>
+    <h3 class="m-5">Realiza los pagos de tus servicios sin necesidad de ser cliente del banco</h3>
+
+    <div class="row my-3 mb-5">
+        <div class="card col-4 " style="width: 80%">
+            <div class="card-body">
+                <h5 class="card-title">PASO 1</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Elegir servicio</h6>
+                <p class="card-text">
+                    Seleccciona el servicio que deseas pagar
+                </p>
+            </div>
+        </div>
+        <div class="card col-4 " style="width: 80%">
+            <div class="card-body">
+                <h5 class="card-title">PASO 2</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Ingresar tu tarjeta</h6>
+                <p class="card-text">
+                    Ingresa los datos de la tarjeta con que realizaras el pago. Te mostraremos las tarjetas registradas anteriormente.
+                </p>
+            </div>
+        </div>
+        <div class="card col-4 " style="width: 80%">
+            <div class="card-body">
+                <h5 class="card-title">PASO 3</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Finalizar el pago</h6>
+                <p class="card-text">
+                    Haz clic en "Pagar servicio", confirma el pago y listo, habras concluido.
+                </p>
+                <a routerLink="/RealizarPago" class="card-link">¡Empieza!</a>
+            </div>
+        </div>
+    </div>
+
+    <a routerLink="/RealizarPago" class="btn btn-primary btn-lg mx-3" role="button" aria-pressed="true">Pagar un servicio</a>
+    <a routerLink="/HistorialPago" class="btn btn-primary btn-lg mx-3" role="button" aria-pressed="true">Revisar tus pagos</a>
+    <a routerLink="/tarjeta" class="btn btn-primary btn-lg mx-3" role="button" aria-pressed="true">Añadir una tarjeta</a>
+    <a routerLink="/Subscripciones" class="btn btn-primary btn-lg mx-3" role="button" aria-pressed="true">Subscripciones</a>
+
+</div>

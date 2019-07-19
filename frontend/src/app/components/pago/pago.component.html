@@ -1,0 +1,43 @@
+<div class="text-center m-5" style="background-color:#D1ECF1">
+    <app-loading *ngIf="loading"></app-loading>
+
+    <div class="animated fadeIn" *ngIf="!loading && this.Paso>=1">
+        <h1>Selecciona tu servicio</h1>
+        <h5 class="m-3 text-left">Selecciona el servicio que desear pagar</h5>
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Entidad</th>
+                    <th scope="col">Monto</th>
+                    <th scope="col">Fecha de vencimiento</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Pago of PagosDisponibles">
+                    <td>{{Pago.servicio}}</td>
+                    <td>{{Pago.entidad}}</td>
+                    <td>{{Pago.monto}}</td>
+                    <td>{{Pago.fecha}}</td>
+                    <td>
+                        <button (click)="SeleccionarPago(Pago)" type="button" class="btn btn-success">Seleccionar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="animated fadeIn" *ngIf="!loading && this.Paso>=2">
+        <h6 class="m-3 text-left">Servicio Seleccionado: {{servicio.servicio}}</h6>
+        <h5 class="m-3 text-left">Selecciona la tarjeta con la que realizaras el pago</h5>
+        <select>
+            <option *ngFor="let tarjeta of Tarjetas, let i=index" value="index">{{tarjeta.numero | tarjeta }}</option> 
+        </select>
+    </div>
+
+    <button *ngIf="!loading" type="button" class="btn btn-danger btn-lg mt-3">Cancelar</button>
+
+
+</div>
