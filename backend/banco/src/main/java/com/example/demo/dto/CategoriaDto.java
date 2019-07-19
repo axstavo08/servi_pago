@@ -12,20 +12,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name="categoria")
+
 public class CategoriaDto {
 
-	@Id
-	@GeneratedValue
-	private int id_categoria;
 	
-	@NotNull
-	@Column(name="nombre_categoria", length = 50)
+	public CategoriaDto(){}
+	
+	public CategoriaDto(){}
+	
+	private int id_categoria;
+
 	private String nombre_categoria;
 	
-	@OneToMany
-	@JoinColumn(name="id_categoria")
 	private List<EntidadDto> entidades = new ArrayList<EntidadDto>();
 	
 	
