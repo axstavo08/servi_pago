@@ -14,35 +14,32 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.web.bind.annotation.RestController;
 
-@Entity
-@Table(name="suscripcion")
 public class SuscripcionDto {
 
-	@Id
-	@GeneratedValue
 	private int id_suscripcion;
 	
-	@NotNull
-	@Column(name="dni")
 	private String dni;
 	
-	@NotNull
-	@Column(name="id_servicio")
 	private int id_servicio;
 	
-	@NotNull
-	@Column(name="fecha")
 	private Date fecha;
 	
-	@NotNull
-	@Column(name="monto")
 	private float monto;
 	
-	@ManyToOne
 	private ClienteDto cliente;	
 	
-	@OneToOne ServicioDto servicio;	
+	private ServicioDto servicio;	
 
+	public SuscripcionDto() {}
+	
+	public SuscripcionDto(int id_suscripcion,String dni,int id_servicio,Date fecha,float monto) {
+		this.id_suscripcion = id_suscripcion;
+		this.dni = dni;
+		this.id_servicio = id_servicio;
+		this.fecha = fecha;
+		this.monto = monto;
+	}
+	
 	public int getId_suscripcion() {
 		return id_suscripcion;
 	}

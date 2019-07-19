@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.ClienteDto;
 import com.example.demo.model.Categoria;
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Pago;
@@ -41,4 +42,12 @@ public class ClienteController {
 		List<Tarjeta> tarjetas = clienteservice.getTarjetas(dni);
 		return tarjetas;
 	}
+	
+	@GetMapping("/login")
+	public ClienteDto ListarTarjetas(String dni,String pass) {
+		
+		return tarjetas;
+	}
+	
+	
 }

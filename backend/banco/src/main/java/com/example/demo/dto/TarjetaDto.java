@@ -13,51 +13,28 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name="cuenta")
 public class TarjetaDto {
 
-	@Id
-	@Column(length = 16)
 	private String numero_tarjeta;
 	
-	@Column(name="dni",length=8)
-	@NotNull
 	private String dni;
 	
-	@Column(name="tipo",length=45)
-	@NotNull
 	private String tipo;
 	
-	@Column(name="fecha_vencimiento")
-	@NotNull
 	private Date fecha_vencimiento;
 	
-	@Column(name="cvv",length=3)
-	@NotNull
 	private String cvv;
 	
-	@Column(name="fecha_registro")
-	@NotNull
 	private Date fecha_registro;
 	
-	@Column(name="marca",length=45)
-	@NotNull
 	private String marca;
 	
-	@NotNull
-	@Column(name="monto")
 	private float monto;
 	
-	@Column(name="estado",length=10)
-	@NotNull
 	private String estado;
 	
-	@ManyToOne
 	private ClienteDto cliente;
 	
-	@OneToMany
-	@JoinColumn(name="cuentaid")
 	private List<PagoDto> pagos = new ArrayList<PagoDto>();	
 	
 	
