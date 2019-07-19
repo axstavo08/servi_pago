@@ -19,4 +19,9 @@ public class TarjetaService {
 	public List<Tarjeta> getTarjetas(){
 		return tarjetarepo.findAll();
 	}
+	
+    public boolean addTarjeta(Tarjeta tarjeta) {
+        Tarjeta t = tarjetarepo.save(tarjeta);
+        return t != null;
+    }
 }

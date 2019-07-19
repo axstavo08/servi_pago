@@ -56,4 +56,13 @@ public class ClienteController {
         }
         return new ResponseBody(0, new ResponseData(tarjetas));
     }
+    
+    @PostMapping("/agregar")
+    public String AgregarCliente(Cliente cliente) {    	
+    	if(clienteservice.addCliente(cliente)) {
+    		return "ok";
+    	}else {
+    		return "error";
+    	}
+    }
 }
