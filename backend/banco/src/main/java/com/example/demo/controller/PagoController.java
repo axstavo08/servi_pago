@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.PagoDto;
+import com.example.demo.dto.ResponseBody;
+import com.example.demo.dto.ResponseData;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +27,9 @@ public class PagoController {
     private PagoService pagoservice;
 
     @GetMapping()
-    public List<Pago> Listar(Model model) {
-        List<Pago> pagos = pagoservice.getPagos();
-        return pagos;
+    public Object Listar(Model model) {
+        List<PagoDto> pagos = pagoservice.getPagos();
+        return new ResponseBody(0, new ResponseData(pagos));
     }
 
     @PostMapping("/agregar")
