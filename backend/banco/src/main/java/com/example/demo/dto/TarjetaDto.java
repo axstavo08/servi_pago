@@ -33,22 +33,22 @@ public class TarjetaDto {
 
     private String estado;
 
-    private ClienteDto cliente;
-
     private List<PagoDto> pagos = new ArrayList<PagoDto>();
 
-    public TarjetaDto(String numero_tarjeta, String dni, String tipo, Date fecha_vencimiento, String cvv,
-            Date fecha_registro, String marca, float monto, String estado, ClienteDto cliente) {
-        this.numero_tarjeta = numero_tarjeta;
+    public TarjetaDto() {
+    }
+
+    public TarjetaDto(String numero, String dni, String tipo, Date fecha_ven, String cvv, Date fecha_reg,
+            String marca, float monto, String estado, List<PagoDto> pagos) {
+        this.numero_tarjeta = numero;
         this.dni = dni;
         this.tipo = tipo;
-        this.fecha_vencimiento = fecha_vencimiento;
+        this.fecha_vencimiento = fecha_ven;
         this.cvv = cvv;
-        this.fecha_registro = fecha_registro;
+        this.fecha_registro = fecha_reg;
         this.marca = marca;
         this.monto = monto;
-        this.estado = estado;
-        this.cliente = cliente;
+        this.pagos = pagos;
     }
 
     public String getNumero_tarjeta() {
@@ -123,12 +123,11 @@ public class TarjetaDto {
         this.monto = monto;
     }
 
-    public ClienteDto getCliente() {
-        return cliente;
-    }
-
     public List<PagoDto> getPagos() {
         return pagos;
     }
 
+    public void setPagos(List<PagoDto> pagos) {
+        this.pagos = pagos;
+    }
 }

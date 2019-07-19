@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.Tarjeta;
+import com.example.demo.model.*;
+import com.example.demo.dto.*;
+
 import com.example.demo.repository.ITarjetaRepo;
 
 @Service
@@ -17,4 +19,9 @@ public class TarjetaService {
 	public List<Tarjeta> getTarjetas(){
 		return tarjetarepo.findAll();
 	}
+	
+    public boolean addTarjeta(Tarjeta tarjeta) {
+        Tarjeta t = tarjetarepo.save(tarjeta);
+        return t != null;
+    }
 }

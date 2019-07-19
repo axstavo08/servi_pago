@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.demo.dto.ClienteDto;
 import com.example.demo.dto.ResponseBody;
 import com.example.demo.dto.ResponseData;
@@ -38,20 +37,38 @@ public class ClienteController {
     }
 
     @GetMapping("/suscripciones")
-    public List<Suscripcion> ListarSuscripciones(String dni) {
+    public Object ListarSuscripciones(String dni) {
         List<Suscripcion> suscripciones = clienteservice.getSuscripciones(dni);
-        return suscripciones;
+        if (suscripciones == null) {
+            return new ResponseBody(1, new ResponseData("Usuario incorrecto o invalido"));
+        }
+        return new ResponseBody(0, new ResponseData(suscripciones));
     }
 
     @GetMapping("/pagos")
-    public List<Pago> ListarPagos(String dni) {
+    public Object ListarPagos(String dni) {
         List<Pago> pagos = clienteservice.getPagos(dni);
-        return pagos;
+        if (pagos == null) {
+            return new ResponseBody(1, new ResponseData("Usuario incorrecto o invalido"));
+        }
+        return new ResponseBody(0, new ResponseData(pagos));
     }
 
     @GetMapping("/tarjetas")
-    public List<Tarjeta> ListarTarjetas(String dni) {
+    public Object ListarTarjetas(String dni) {
         List<Tarjeta> tarjetas = clienteservice.getTarjetas(dni);
-        return tarjetas;
+        if (tarjetas == null) {
+            return new ResponseBody(1, new ResponseData("Usuario incorrecto o invalido"));
+        }
+        return new ResponseBody(0, new ResponseData(tarjetas));
+    }
+    
+    @PostMapping("/agregar")
+    public String AgregarCliente(Cliente cliente) {    	
+    	if(clienteservice.addCliente(cliente)) {
+    		return "ok";
+    	}else {
+    		return "error";
+    	}
     }
 }

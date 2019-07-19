@@ -26,7 +26,7 @@ public class ClienteDto {
     }
     
     public ClienteDto(String dni, String nombres, String apellidos, String telefono,
-            String ubigeo, String correo, List<TarjetaDto> tarjetas, List<SuscripcionDto> suscripciones) {
+            String ubigeo, String correo, List<TarjetaDto> tarjetas,List<SuscripcionDto> suscripciones) {
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -108,4 +108,5 @@ public class ClienteDto {
     public void setSuscripciones(List<SuscripcionDto> suscripciones) {
         this.suscripciones = suscripciones;
     }
+    
 }

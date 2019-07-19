@@ -34,7 +34,6 @@ public class Suscripcion {
     private int id_servicio;
 
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull
     @Column(name = "fecha")
     private Date fecha;

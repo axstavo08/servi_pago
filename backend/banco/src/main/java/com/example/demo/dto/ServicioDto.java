@@ -32,11 +32,14 @@ public class ServicioDto {
 	
 	public ServicioDto() {}
 	
-	public ServicioDto(int id,String nombre, String ruc,float monto) {
+	public ServicioDto(int id,String nombre, String ruc,float monto,EntidadDto entidad, SuscripcionDto suscripcion,List<PagoDto> pagos) {
 		this.id_servicio = id;
 		this.nombre_servicio = nombre;
 		this.ruc = ruc;
 		this.monto = monto;
+		this.entidad = entidad;
+		this.suscripcion = suscripcion;
+		this.pagos = pagos;
 	}
 	
 	public int getId_servicio() {
@@ -73,4 +76,17 @@ public class ServicioDto {
 	public SuscripcionDto getSuscripcion() {
 		return suscripcion;
 	}
+
+	public void setEntidad(EntidadDto entidad) {
+		this.entidad = entidad;
+	}
+
+	public void setSuscripcion(SuscripcionDto suscripcion) {
+		this.suscripcion = suscripcion;
+	}
+
+	public void setPagos(List<PagoDto> pagos) {
+		this.pagos = pagos;
+	}
+	
 }

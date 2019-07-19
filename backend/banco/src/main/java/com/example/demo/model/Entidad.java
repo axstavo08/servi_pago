@@ -28,10 +28,6 @@ public class Entidad {
     @NotNull
     private String telefono;
 
-    @Column(name = "id_categoria")
-    @NotNull
-    private int id_categoria;
-
     @OneToMany
     @JoinColumn(name = "ruc")
     private List<Servicio> servicios = new ArrayList<Servicio>();
@@ -58,13 +54,5 @@ public class Entidad {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public int getId_categoria() {
-        return id_categoria;
-    }
-
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
     }
 }

@@ -26,10 +26,6 @@ public class SuscripcionDto {
 
     private float monto;
 
-    private ClienteDto cliente;
-
-    private ServicioDto servicio;
-
     public SuscripcionDto() {
     }
 
@@ -79,13 +75,5 @@ public class SuscripcionDto {
 
     public void setMonto(float monto) {
         this.monto = monto;
-    }
-
-    public ClienteDto getCliente() {
-        return cliente;
-    }
-
-    public ServicioDto getServicio() {
-        return servicio;
     }
 }
