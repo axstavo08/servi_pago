@@ -37,6 +37,20 @@ public class TarjetaDto {
 	
 	private List<PagoDto> pagos = new ArrayList<PagoDto>();	
 	
+	public TarjetaDto() {}
+	
+	public TarjetaDto(String numero,String dni,String tipo,Date fecha_ven,String cvv,Date fecha_reg,String marca,float monto,String estado,ClienteDto cliente,List<PagoDto> pagos) {
+		this.numero_tarjeta = numero;
+		this.dni = dni;
+		this.tipo = tipo;
+		this.fecha_vencimiento = fecha_ven;
+		this.cvv = cvv;
+		this.fecha_registro = fecha_reg;
+		this.marca = marca;
+		this.monto = monto;
+		this.cliente = cliente;
+		this.pagos = pagos;
+	}
 	
 	public String getNumero_tarjeta() {
 		return numero_tarjeta;
@@ -116,6 +130,15 @@ public class TarjetaDto {
 
 	public List<PagoDto> getPagos() {
 		return pagos;
+	}
+
+	public void setCliente(ClienteDto cliente) {
+		this.cliente = cliente;
+	}
+
+	public void setPagos(List<PagoDto> pagos) {
+		this.pagos = pagos;
 	}	
+	
 	
 }

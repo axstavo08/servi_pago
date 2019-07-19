@@ -27,7 +27,7 @@ public class ClienteDto {
     }
     
     public ClienteDto(String dni, String nombres, String apellidos, Date fecha_nacimiento, String telefono,
-            String ubigeo, String correo, String password) {
+            String ubigeo, String correo, String password,List<TarjetaDto> tarjetas,List<SuscripcionDto> suscripciones) {
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -36,6 +36,8 @@ public class ClienteDto {
         this.ubigeo = ubigeo;
         this.correo = correo;
         this.password = password;
+        this.tarjetas = tarjetas;
+        this.suscripciones = suscripciones;
     }
 
     public String getDni() {
@@ -117,4 +119,5 @@ public class ClienteDto {
     public void setSuscripciones(List<SuscripcionDto> suscripciones) {
         this.suscripciones = suscripciones;
     }
+    
 }

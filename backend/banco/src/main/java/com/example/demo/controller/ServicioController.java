@@ -11,18 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Cliente;
 import com.example.demo.model.Servicio;
-import com.example.demo.service.ConsultaService;
+import com.example.demo.service.PagoService;
+import com.example.demo.service.ServicioService;
 
 @RestController
 @RequestMapping("/servicio")
 public class ServicioController {
+
 	@Autowired
-	private ConsultaService consulta;
+	private ServicioService servicioservice;
 	
 	@GetMapping()
-	public String Listar(Model model) {
-		List<Servicio> servicios = consulta.getServicios();
-		model.addAttribute("servicios",servicios);
-		return "servicio/index";
+	public List<Servicio> Listar(Model model) {
+		List<Servicio> servicios = servicioservice.getServicios();
+		return servicios;
 	}
 }

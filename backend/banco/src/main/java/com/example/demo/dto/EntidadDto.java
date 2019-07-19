@@ -24,10 +24,11 @@ public class EntidadDto {
 	
 	public EntidadDto() {}
 	
-	public EntidadDto(String ruc,String nombre,String telefono) {
+	public EntidadDto(String ruc,String nombre,String telefono,List<ServicioDto> servicios) {
 		this.ruc = ruc;
 		this.nombre_entidad = nombre;
 		this.telefono = telefono;
+		this.servicios = servicios;
 	}
 	
 	public String getRuc() {
@@ -48,4 +49,21 @@ public class EntidadDto {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+
+	public String getNombre_entidad() {
+		return nombre_entidad;
+	}
+
+	public void setNombre_entidad(String nombre_entidad) {
+		this.nombre_entidad = nombre_entidad;
+	}
+
+	public List<ServicioDto> getServicios() {
+		return servicios;
+	}
+
+	public void setServicios(List<ServicioDto> servicios) {
+		this.servicios = servicios;
+	}
+	
 }

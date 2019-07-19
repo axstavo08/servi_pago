@@ -7,6 +7,4 @@ import org.springframework.data.repository.query.Param;
 
 public interface IClienteRepo extends JpaRepository<Cliente,String> {
     
-     @Query("SELECT c FROM cliente c WHERE c.dni = (:dni)")
-     Cliente findByDni(@Param("dni") String dni);
 }

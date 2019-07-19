@@ -32,12 +32,14 @@ public class SuscripcionDto {
 
 	public SuscripcionDto() {}
 	
-	public SuscripcionDto(int id_suscripcion,String dni,int id_servicio,Date fecha,float monto) {
+	public SuscripcionDto(int id_suscripcion,String dni,int id_servicio,Date fecha,float monto,ClienteDto cliente,ServicioDto servicio) {
 		this.id_suscripcion = id_suscripcion;
 		this.dni = dni;
 		this.id_servicio = id_servicio;
 		this.fecha = fecha;
 		this.monto = monto;
+		this.cliente = cliente;
+		this.servicio = servicio;
 	}
 	
 	public int getId_suscripcion() {
@@ -87,4 +89,13 @@ public class SuscripcionDto {
 	public ServicioDto getServicio() {
 		return servicio;
 	}
+
+	public void setCliente(ClienteDto cliente) {
+		this.cliente = cliente;
+	}
+
+	public void setServicio(ServicioDto servicio) {
+		this.servicio = servicio;
+	}
+	
 }

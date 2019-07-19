@@ -8,27 +8,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name="pago")
+import com.example.demo.model.Tarjeta;
+
 public class PagoDto {
 
-	@Id
-	@GeneratedValue
 	private int id_pago;
 	
-	@Column(name="id_servicio")
-	@NotNull
 	private int id_servicio;
 	
-	@Column(name="numero_tarjeta",length=16)
-	@NotNull
 	private String numero_tarjeta;
 	
-	@ManyToOne
-	private TarjetaDto cuenta;
+	private TarjetaDto tarjeta;
 	
-	@ManyToOne
 	private ServicioDto servicio;
+	
+	public PagoDto() {}
+	
+	public PagoDto(int id_pago,int id_servicio,String numero,Tarjeta tarjeta,ServicioDto servicio) {
+		this.id_pago = id_pago;
+		this.id_servicio = id_servicio;
+		this.numero_tarjeta = numero;
+		this.servicio = servicio;
+	}
 	
 	public int getId_pago() {
 		return id_pago;
@@ -48,11 +49,20 @@ public class PagoDto {
 	public void setNumero_tarjeta(String numero_tarjeta) {
 		this.numero_tarjeta = numero_tarjeta;
 	}
-	public TarjetaDto getCuenta() {
-		return cuenta;
+	public TarjetaDto getTarjeta() {
+		return tarjeta;
 	}
 	public ServicioDto getServicio() {
 		return servicio;
 	}
+
+	public void setTarjeta(TarjetaDto tarjeta) {
+		this.tarjeta = tarjeta;
+	}
+
+	public void setServicio(ServicioDto servicio) {
+		this.servicio = servicio;
+	}
+	
 	
 }

@@ -9,21 +9,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Cliente;
-import com.example.demo.model.Entidad;
-import com.example.demo.service.ConsultaService;
+import com.example.demo.model.*;
+import com.example.demo.service.EntidadService;
 
 @RestController
 @RequestMapping("/entidad")
 public class EntidadController {
 	
 	@Autowired
-	private ConsultaService consulta;
+	private EntidadService entidadservice;
 	
 	@GetMapping
-	public String Listar(Model model) {
-		List<Entidad> entidades = consulta.getEntidades();
-		model.addAttribute("entidades",entidades);
-		return "entidad/index";
+	public List<Entidad> Listar() {
+		List<Entidad> entidades = entidadservice.getEntidades();
+		return entidades;
 	}
 }
