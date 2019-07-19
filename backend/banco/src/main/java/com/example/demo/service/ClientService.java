@@ -5,11 +5,11 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.dto.ClientDto;
-import com.example.demo.model.ClientModel;
+import com.example.demo.dto.ClienteDto;
+import com.example.demo.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.demo.repository.ClientRepository;
+import com.example.demo.repository.IClienteRepo;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,19 +21,19 @@ import java.util.List;
 public class ClientService {
 
     @Autowired
-    ClientRepository clientRepository;
+    IClienteRepo clientRepository;
 
     public List getClients() {
-        List<ClientDto> clients = new ArrayList<>();
-        List<ClientModel> clientsData = clientRepository.findAll();
-        for (ClientModel clientModel : clientsData) {
-            clients.add(new ClientDto(clientModel.getDni(), clientModel.getNames(), clientModel.getSurnames(),
-                    clientModel.getPhone(), clientModel.getBornDate(), clientModel.getUbigeo(), clientModel.getEmail()));
+        List<ClienteDto> clients = new ArrayList<>();
+        List<Cliente> clientsData = clientRepository.findAll();
+        for (Cliente clientModel : clientsData) {
+            clients.add(new ClienteDto(clientModel.getDni(), clientModel.getNombres(), clientModel.getApellidos(),
+                    clientModel.getFecha_nacimiento(), clientModel.getTelefono(), clientModel.getCorreo()));
         }
         return clients;
     }
     
-    public ClientDto getClient(String dni) {
-        ClientModel clientModel = clientRepository.findByDni(dni);
+    public ClienteDto getClient(String dni) {
+        Cliente clientModel = clientRepository.findByDni(dni);
     }
 }
