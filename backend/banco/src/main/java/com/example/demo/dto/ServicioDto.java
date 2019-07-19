@@ -14,35 +14,30 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name="servicio")
 public class ServicioDto {
-	
-	@Id
-	@GeneratedValue
+			
 	private int id_servicio;
 	
-	@Column(name="nombre_servicio",length=50)
-	@NotNull
 	private String nombre_servicio;
 	
-	@Column(name="ruc",length=10)
-	@NotNull
 	private String ruc;
 	
-	@Column(name="monto")
-	@NotNull
 	private float monto;
 	
-	@ManyToOne
 	private EntidadDto entidad;
 	
-	@OneToOne
 	private SuscripcionDto suscripcion;
 	
-	@OneToMany
-	@JoinColumn(name="id_servicio")
-	private List<PagoDto> pagos = new ArrayList<PagoDto>();	
+	private List<PagoDto> pagos = new ArrayList<PagoDto>();
+	
+	public ServicioDto() {}
+	
+	public ServicioDto(int id,String nombre, String ruc,float monto) {
+		this.id_servicio = id;
+		this.nombre_servicio = nombre;
+		this.ruc = ruc;
+		this.monto = monto;
+	}
 	
 	public int getId_servicio() {
 		return id_servicio;

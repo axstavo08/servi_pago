@@ -12,32 +12,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name="entidad")
 public class EntidadDto {
 	
-	@Id
-	@Column(length=10)
 	private String ruc;
 	
-	@Column(name="nombre_entidad",length=50)
-	@NotNull
 	private String nombre_entidad;
 	
-	@Column(name="telefono",length=9)
-	@NotNull
 	private String telefono;
-	
-	@Column(name="id_categoria")
-	@NotNull
-	private int id_categoria;
-	
-	@ManyToOne
-	private CategoriaDto categoria;
-	
-	@OneToMany
-	@JoinColumn(name="ruc")
+		
 	private List<ServicioDto> servicios = new ArrayList<ServicioDto>();
+	
+	public EntidadDto() {}
+	
+	//public EntidadDto() {}
 	
 	public String getRuc() {
 		return ruc;
@@ -57,14 +44,4 @@ public class EntidadDto {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public int getId_categoria() {
-		return id_categoria;
-	}
-	public void setId_categoria(int id_categoria) {
-		this.id_categoria = id_categoria;
-	}
-	public CategoriaDto getCategoria() {
-		return categoria;
-	}
-	
 }
